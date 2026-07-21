@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obliq.io — Built for CA Firms</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0f0f;
+    --ink2: #2a2a2a;
+    --ink3: #555;
+    --cream: #faf8f4;
+    --warm: #f2ede3;
+    --accent: #1a1a1a;
+    --gold: #c8a96e;
+    --gold-light: #e8d9bb;
+    --green: #1d6b48;
+    --green-bg: #edf7f2;
+    --red: #c0392b;
+    --red-bg: #fdf0ee;
+    --amber: #b8860b;
+    --amber-bg: #fef9ee;
+    --rule: #e0d8cb;
+    --page: 794px;
+  }
+
+  html { background: #ddd6c8; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.7;
+    background: #ddd6c8;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .page {
+    background: var(--cream);
+    max-width: var(--page);
+    margin: 0 auto 2rem;
+    padding: 0;
+    box-shadow: 0 8px 60px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    background: var(--ink);
+    color: var(--cream);
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 52px 60px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,169,110,0.15);
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -140px;
+    width: 520px; height: 520px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,169,110,0.08);
+  }
+  .cover-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    z-index: 1;
+  }
+  .cover-logo img {
+    width: 48px; height: 48px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    border-radius: 6px;
+  }
+  .cover-logo-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    letter-spacing: 0.02em;
+    color: #fff;
+  }
+  .cover-logo-text span {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .cover-hero { z-index: 1; }
+  .cover-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .cover-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 46px;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 22px;
+    max-width: 540px;
+  }
+  .cover-title em {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .cover-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.68);
+    max-width: 480px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 1;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+  }
+  .cover-tag {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em;
+  }
+  .cover-pills { display: flex; gap: 10px; }
+  .cover-pill {
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(200,169,110,0.35);
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── INNER PAGE ── */
+  .inner { padding: 60px; }
+
+  /* Section header */
+  .sec {
+    margin-bottom: 40px;
+  }
+  .sec-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .sec-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .sec-title em { font-style: italic; color: #555; }
+  .sec-body {
+    font-size: 13.5px;
+    color: var(--ink3);
+    line-height: 1.75;
+    max-width: 620px;
+  }
+  .sec-body p + p { margin-top: 10px; }
+
+  /* Rule */
+  hr { border: none; border-top: 1px solid var(--rule); margin: 44px 0; }
+
+  /* Pull quote */
+  .pullquote {
+    border-left: 3px solid var(--gold);
+    padding: 14px 22px;
+    margin: 28px 0;
+    background: var(--warm);
+    border-radius: 0 4px 4px 0;
+  }
+  .pullquote p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: var(--ink2);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* Tables */
+  .tbl-wrap { overflow-x: auto; margin: 24px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  thead tr {
+    background: var(--ink);
+    color: #fff;
+  }
+  thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  tbody tr { border-bottom: 1px solid var(--rule); }
+  tbody tr:nth-child(even) { background: var(--warm); }
+  tbody td {
+    padding: 10px 14px;
+    vertical-align: top;
+    color: var(--ink2);
+    line-height: 1.55;
+  }
+  tbody td:first-child { font-weight: 500; color: var(--ink); }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .tag-red { background: var(--red-bg); color: var(--red); }
+  .tag-green { background: var(--green-bg); color: var(--green); }
+  .tag-amber { background: var(--amber-bg); color: var(--amber); }
+  .tag-dark { background: #e8e3da; color: var(--ink2); }
+
+  /* Before/After */
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+  .ba-card {
+    border-radius: 6px;
+    padding: 22px 24px;
+    border: 1px solid var(--rule);
+  }
+  .ba-card.before { background: #fff9f8; border-color: #f0d0cb; }
+  .ba-card.after { background: #f6fbf8; border-color: #b8dfc8; }
+  .ba-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .ba-card.before .ba-label { color: var(--red); }
+  .ba-card.after .ba-label { color: var(--green); }
+  .ba-step {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 12.5px;
+    color: var(--ink2);
+    line-height: 1.5;
+  }
+  .ba-num {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .ba-card.before .ba-num { background: #f0d0cb; color: var(--red); }
+  .ba-card.after .ba-num { background: #b8dfc8; color: var(--green); }
+
+  /* Feature grid */
+  .feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0; }
+  .feat-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 18px 20px;
+    border-top: 3px solid var(--gold);
+  }
+  .feat-icon { font-size: 20px; margin-bottom: 8px; }
+  .feat-name { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
+  .feat-desc { font-size: 12px; color: var(--ink3); line-height: 1.6; }
+  .feat-solves { margin-top: 8px; font-size: 11px; }
+
+  /* Story */
+  .story-box {
+    background: var(--warm);
+    border-radius: 8px;
+    padding: 30px 32px;
+    margin: 24px 0;
+    border: 1px solid var(--rule);
+    position: relative;
+  }
+  .story-box::before {
+    content: '"';
+    position: absolute;
+    top: 12px; left: 20px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 72px;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .story-body { position: relative; z-index: 1; }
+  .story-para { font-size: 13px; color: var(--ink2); line-height: 1.75; margin-bottom: 12px; }
+  .story-para strong { color: var(--ink); font-weight: 600; }
+  .story-highlight {
+    display: inline-block;
+    background: var(--ink);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 11.5px;
+    font-weight: 500;
+  }
+
+  /* FAQ */
+  .faq-item { border-bottom: 1px solid var(--rule); padding: 16px 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 7px;
+    display: flex;
+    gap: 8px;
+  }
+  .faq-q span { color: var(--gold); }
+  .faq-a { font-size: 13px; color: var(--ink3); line-height: 1.7; padding-left: 22px; }
+
+  /* Why different */
+  .diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .diff-card {
+    padding: 20px 18px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .diff-icon { font-size: 24px; margin-bottom: 10px; }
+  .diff-title { font-size: 13px; font-weight: 600; margin-bottom: 6px; color: var(--gold); }
+  .diff-desc { font-size: 11.5px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  /* CTA */
+  .cta-box {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 8px;
+    padding: 44px 48px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .cta-left {}
+  .cta-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .cta-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+  .cta-body { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 360px; }
+  .cta-right { flex-shrink: 0; text-align: center; }
+  .cta-btn {
+    display: block;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 13px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .cta-note { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+  /* Impact numbers */
+  .impact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 24px 0; }
+  .impact-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .impact-before { font-size: 11px; color: var(--red); font-weight: 500; margin-bottom: 4px; }
+  .impact-arrow { font-size: 16px; color: var(--rule); margin: 4px 0; }
+  .impact-after { font-size: 11px; color: var(--green); font-weight: 500; }
+  .impact-label { font-size: 11px; color: var(--ink3); margin-top: 8px; line-height: 1.4; }
+
+  /* Footer */
+  .doc-footer {
+    background: var(--warm);
+    border-top: 1px solid var(--rule);
+    padding: 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--ink3);
+  }
+  .doc-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .doc-footer-logo img {
+    width: 24px; height: 24px;
+    object-fit: contain;
+    border-radius: 3px;
+  }
+  .doc-footer-logo span {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  /* Divider ornament */
+  .ornament {
+    text-align: center;
+    margin: 36px 0;
+    font-size: 14px;
+    color: var(--rule);
+    letter-spacing: 0.3em;
+  }
+
+  /* Page number bar */
+  .page-bar {
+    background: var(--ink);
+    padding: 10px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page-bar span { font-size: 10px; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  @media print {
+    html, body { background: white; padding: 0; }
+    .page { box-shadow: none; margin: 0; max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════ PAGE 1: COVER ══════════════════════════════════════ -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-logo">
+      <img src="data:image/jpeg;base64,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" alt="Obliq.io Logo">
+      <div class="cover-logo-text">Obliq<span>.io</span></div>
+    </div>
+
+    <div class="cover-hero">
+      <div class="cover-eyebrow">For Indian CA Firms · 2025</div>
+      <h1 class="cover-title">Run your CA firm<br>without the <em>chaos.</em></h1>
+      <p class="cover-subtitle">A simple, purpose-built platform that helps CA firms handle 200+ clients — without Excel breaking down, WhatsApp flooding in, or deadlines silently slipping through.</p>
+    </div>
+
+    <div class="cover-footer">
+      <span class="cover-tag">CONFIDENTIAL · PRODUCT OVERVIEW</span>
+      <div class="cover-pills">
+        <span class="cover-pill">GST</span>
+        <span class="cover-pill">ITR</span>
+        <span class="cover-pill">ROC</span>
+        <span class="cover-pill">TDS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- page bar -->
+  <div class="page-bar">
+    <span>Obliq.io — CA Practice Management</span>
+    <span>Page 1</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════ PAGE 2: INTRO + REALITY ══════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+
+    <!-- Section 1 -->
+    <div class="sec">
+      <div class="sec-label">01 — What is this?</div>
+      <h2 class="sec-title">Built specifically for<br><em>CA firms like yours.</em></h2>
+      <div class="sec-body">
+        <p>Obliq.io is a practice management tool built from the ground up for Indian Chartered Accountant firms handling multiple clients across GST, ITR, TDS, and ROC compliance.</p>
+        <p>It gives you one place to collect client documents, assign tasks to your team, track every deadline, and let clients see the status of their own filings — without calling you.</p>
+        <p>No complex setup. No expensive ERP. No learning curve. If you can use WhatsApp, you can use Obliq.io.</p>
+      </div>
+    </div>
+
+    <div class="pullquote">
+      <p>"You already know how to do compliance. We just remove the coordination chaos around it."</p>
+    </div>
+
+    <hr>
+
+    <!-- Section 2 -->
+    <div class="sec">
+      <div class="sec-label">02 — Current reality</div>
+      <h2 class="sec-title">We understand your <em>actual day.</em></h2>
+      <div class="sec-body">
+        <p>You know how this goes. On the 9th of every month, you're chasing 30 clients on WhatsApp. One article thinks the other filed it. A client calls asking for status. The GST portal crashes. And somewhere in all that noise, a deadline quietly slips.</p>
+        <p>This isn't a skills problem. It's a systems problem.</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Problem</th>
+              <th>What actually happens</th>
+              <th>Impact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Missing client documents</td>
+              <td>You send WhatsApp reminders manually to 40+ clients every month. Same clients, same requests, every cycle.</td>
+              <td><span class="tag tag-red">Late filings · Penalties</span></td>
+            </tr>
+            <tr>
+              <td>No task ownership in team</td>
+              <td>"Maine socha tune kar diya" — two articles assume the other is handling the same filing. Nobody did it.</td>
+              <td><span class="tag tag-red">Missed deadlines</span></td>
+            </tr>
+            <tr>
+              <td>Client calling for status</td>
+              <td>Every "kya hua mera ITR?" call takes 10–15 minutes. 200 clients × 2 calls/month = 60+ hours lost.</td>
+              <td><span class="tag tag-amber">CA time wasted</span></td>
+            </tr>
+            <tr>
+              <td>No billing for ad-hoc work</td>
+              <td>Notice replies, advisory calls, rectifications — all done for free because there's no tracking system.</td>
+              <td><span class="tag tag-red">₹5–8L/year leakage</span></td>
+            </tr>
+            <tr>
+              <td>Excel as the only tracker</td>
+              <td>One shared Excel file for 200 clients. Two people editing at once. Colours everywhere. Breaks monthly.</td>
+              <td><span class="tag tag-amber">Errors · Confusion</span></td>
+            </tr>
+            <tr>
+              <td>No client-facing visibility</td>
+              <td>Client has no portal, no acknowledgement, no way to download their own returns. They must always call.</td>
+              <td><span class="tag tag-amber">Poor client experience</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-bar">
+    <span>Obliq.io — CA Practice Management</span>
+    <span>Page 2</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════ PAGE 3: BEFORE / AFTER + FEATURES ══════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+
+    <!-- Section 3 -->
+    <div class="sec">
+      <div class="sec-label">03 — Workflow transformation</div>
+      <h2 class="sec-title">Your day, <em>before and after.</em></h2>
+      <div class="sec-body">
+        <p>Here is what GST filing week looks like right now — and what it looks like once you're on Obliq.io.</p>
+      </div>
+
+      <div class="ba-grid">
+        <div class="ba-card before">
+          <div class="ba-label">⚠ Before — Current system</div>
+          <div class="ba-step"><div class="ba-num">1</div><div>Open Excel tracker. Manually check who has sent data and who hasn't.</div></div>
+          <div class="ba-step"><div class="ba-num">2</div><div>Type individual WhatsApp messages to 35+ clients. "Please share July invoices urgently."</div></div>
+          <div class="ba-step"><div class="ba-num">3</div><div>Receive files over WhatsApp, email, Google Drive — in all formats, no standard structure.</div></div>
+          <div class="ba-step"><div class="ba-num">4</div><div>Manually enter data in Tally. Export to Excel. Format for GST portal. Re-check everything.</div></div>
+          <div class="ba-step"><div class="ba-num">5</div><div>GST portal crashes. Wait. Try again. File late for 4 clients. Pay penalty.</div></div>
+          <div class="ba-step"><div class="ba-num">6</div><div>Client calls: "Mera GST hua?" You search three different places for the answer.</div></div>
+          <div class="ba-step"><div class="ba-num">7</div><div>Repeat everything again in 10 days. No record of what happened.</div></div>
+        </div>
+
+        <div class="ba-card after">
+          <div class="ba-label">✓ After — With Obliq.io</div>
+          <div class="ba-step"><div class="ba-num">1</div><div>Dashboard shows exactly who has submitted and who hasn't — at a glance.</div></div>
+          <div class="ba-step"><div class="ba-num">2</div><div>Automated reminders go out on schedule. No manual typing. Clients upload directly to their secure portal.</div></div>
+          <div class="ba-step"><div class="ba-num">3</div><div>All documents arrive in one place, categorised and ready. Team can access immediately.</div></div>
+          <div class="ba-step"><div class="ba-num">4</div><div>CA assigns task to Article: "Kapoor GSTR-3B — Due 10th." Article sees their queue and files.</div></div>
+          <div class="ba-step"><div class="ba-num">5</div><div>Filing status updated in real time. Client sees it on their portal — no need to call.</div></div>
+          <div class="ba-step"><div class="ba-num">6</div><div>All work auto-logged for billing. Invoice generated at month-end. No leakage.</div></div>
+          <div class="ba-step"><div class="ba-num">7</div><div>Full history preserved. Any client question answered in seconds from one place.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 4 -->
+    <div class="sec">
+      <div class="sec-label">04 — Core features</div>
+      <h2 class="sec-title">Six things that <em>change everything.</em></h2>
+
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon">📁</div>
+          <div class="feat-name">Client Document Portal</div>
+          <div class="feat-desc">Each client gets their own secure link. They upload invoices, Form 16, bank statements directly. You define the checklist. They follow it.</div>
+          <div class="feat-solves"><span class="tag tag-green">Solves: WhatsApp chaos · Missing files</span></div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🔔</div>
+          <div class="feat-name">Automated Reminders</div>
+          <div class="feat-desc">Set it once. Reminders go out automatically — 7 days before, 3 days before, day-of. WhatsApp + Email. You never type a follow-up message again.</div>
+          <div class="feat-solves"><span class="tag tag-green">Solves: Manual follow-up fatigue</span></div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">✅</div>
+          <div class="feat-name">Task Assignment System</div>
+          <div class="feat-desc">CA assigns every task to a specific team member with a deadline. Articles see their own queue. Status flows: Not started → In Progress → Filed → Done.</div>
+          <div class="feat-solves"><span class="tag tag-green">Solves: Team confusion · Missed filings</span></div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">🗓</div>
+          <div class="feat-name">Compliance Deadline Tracker</div>
+          <div class="feat-desc">Pre-loaded with all GST, TDS, ITR, and ROC due dates. Firm-wide calendar. Colour-coded urgency. Never miss a filing because it wasn't tracked.</div>
+          <div class="feat-solves"><span class="tag tag-green">Solves: Deadline slippage · Penalties</span></div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">📊</div>
+          <div class="feat-name">Client Status Dashboard</div>
+          <div class="feat-desc">Clients log in and see exactly what's filed, what's pending, and what's due. They download their own acknowledgements. "Kya hua mera ITR?" calls drop dramatically.</div>
+          <div class="feat-solves"><span class="tag tag-green">Solves: Inbound status calls</span></div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">💰</div>
+          <div class="feat-name">Billing Tracker</div>
+          <div class="feat-desc">Every task logged is a billable line item. Notice replies, advisory calls, rectifications — all tracked automatically. Month-end invoicing takes minutes, not hours.</div>
+          <div class="feat-solves"><span class="tag tag-amber">Solves: Revenue leakage · Billing disputes</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="page-bar">
+    <span>Obliq.io — CA Practice Management</span>
+    <span>Page 3</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════ PAGE 4: IMPACT + STORY ══════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+
+    <!-- Section 5 -->
+    <div class="sec">
+      <div class="sec-label">05 — Impact analysis</div>
+      <h2 class="sec-title">Realistic numbers.<br><em>No exaggeration.</em></h2>
+      <div class="sec-body">
+        <p>Based on a typical CA firm handling 150–250 clients. Your numbers may vary, but the direction won't.</p>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Before</th>
+              <th>After Obliq.io</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Time on follow-up messages</td>
+              <td>12–18 hours/month (manual WhatsApp to 150+ clients)</td>
+              <td>Automated. Team effort: &lt;1 hour to review exceptions.</td>
+            </tr>
+            <tr>
+              <td>Missed deadlines per quarter</td>
+              <td>4–8 (due to document delays + team confusion)</td>
+              <td>Near zero — alerts fire before the gap becomes a problem.</td>
+            </tr>
+            <tr>
+              <td>Client status calls received</td>
+              <td>40–60 calls/month ("kya hua mera GST?")</td>
+              <td>Significantly reduced — clients self-serve from their portal.</td>
+            </tr>
+            <tr>
+              <td>Revenue from unbilled work</td>
+              <td>₹5–8L/year lost (notice replies, advisory, rectifications)</td>
+              <td>Captured automatically. Every task = a billing record.</td>
+            </tr>
+            <tr>
+              <td>Document collection time</td>
+              <td>5–7 days of chasing per filing cycle</td>
+              <td>1–2 days. Clients upload proactively when they see the checklist.</td>
+            </tr>
+            <tr>
+              <td>Team coordination overhead</td>
+              <td>Daily informal check-ins, WhatsApp updates, confusion</td>
+              <td>Everyone sees their own queue. CA reviews the dashboard once a day.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Section 6 -->
+    <div class="sec">
+      <div class="sec-label">06 — Real scenario</div>
+      <h2 class="sec-title">Meet CA Rajesh. <em>This is his story.</em></h2>
+
+      <div class="story-box">
+        <div class="story-body">
+          <p class="story-para"><strong>Before Obliq.io —</strong> CA Rajesh runs a firm in Mumbai with 214 clients. Every 10th of the month feels like a fire drill. He sends 35+ WhatsApp reminders himself. His article Priya and Aarav both think the other is handling Kapoor's GSTR-3B. It doesn't get filed. <span class="story-highlight">₹500 late fee. Angry client call.</span> Rajesh spends the evening digging through old emails to figure out what was filed last quarter.</p>
+
+          <p class="story-para">Clients call him constantly — "Sir, mera ITR hua?" He answers the same question 40 times a month. He hasn't tracked a single advisory call for billing. At year end, he realises he's been doing thousands of rupees of extra work for free.</p>
+
+          <p class="story-para"><strong>After Obliq.io —</strong> Rajesh sets up each client's document checklist once. Automated reminders go out on the 5th. By the 8th, 90% of clients have uploaded their documents. Priya sees her assigned queue — 12 filings with deadlines. Aarav has his. No overlap. No confusion.</p>
+
+          <p class="story-para">When Kapoor asks about his GST, Rajesh says: "Check your portal, Kapoor ji — you'll see it there." Kapoor logs in, downloads his acknowledgement, and is genuinely impressed. Every notice response, every advisory call, every rectification — logged automatically. Month-end billing takes 20 minutes instead of 2 hours.</p>
+
+          <p class="story-para"><strong>Net result for Rajesh:</strong> 14 hours saved per month on follow-ups alone. Zero missed filings last quarter. <span class="story-highlight">₹6.2L in previously unbilled work recovered in the first year.</span> And one very relieved team.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-bar">
+    <span>Obliq.io — CA Practice Management</span>
+    <span>Page 4</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════ PAGE 5: FAQs + WHY DIFFERENT ══════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+
+    <!-- Section 7 -->
+    <div class="sec">
+      <div class="sec-label">07 — Frequently asked questions</div>
+      <h2 class="sec-title">Your questions, <em>answered honestly.</em></h2>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>Q</span> Will my clients actually use this?</div>
+        <div class="faq-a">Yes — and more readily than you expect. Clients receive a simple WhatsApp link with their document checklist. It works on mobile, no app download needed. Most clients appreciate having one clear place to submit, rather than sending files to different numbers and emails. The firms we've spoken to report strong client adoption within the first filing cycle.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>Q</span> Is it complicated? Will my team need training?</div>
+        <div class="faq-a">No. The interface is designed to feel familiar — like a simple task list, not enterprise software. Most article assistants pick it up in one sitting. We also provide a short onboarding session for your team at no extra charge. If you can manage a WhatsApp group, you can manage Obliq.io.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>Q</span> Will this replace Tally?</div>
+        <div class="faq-a">No — and it's not trying to. Tally is excellent for bookkeeping and you should continue using it. Obliq.io sits on top of your existing tools: it handles client communication, document collection, task tracking, and deadline management — the coordination layer that Tally doesn't cover. They work alongside each other.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>Q</span> How long does it take to set up?</div>
+        <div class="faq-a">Most firms are running within 2–3 days. Day 1: import your client list. Day 2: set up compliance checklists and team members. Day 3: send your first automated reminders. We handle the technical setup with you. You don't need to be tech-savvy — we do the heavy lifting.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>Q</span> Is my client data safe?</div>
+        <div class="faq-a">Absolutely. All data is encrypted at rest and in transit. We use bank-level security standards. Client documents are accessible only to your firm and the client themselves — not shared with any third party. We are fully compliant with Indian data protection requirements. You retain full ownership of all your data, always.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>Q</span> What if I have 50 clients, not 200?</div>
+        <div class="faq-a">It works at any size. Smaller firms benefit immediately from document tracking and automated reminders. As you grow, the task assignment and billing features become essential. The pricing is designed to be fair at every scale — you pay for what you use.</div>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Section 8 -->
+    <div class="sec">
+      <div class="sec-label">08 — Why this is different</div>
+      <h2 class="sec-title">Not another <em>complex software.</em></h2>
+
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-icon">🇮🇳</div>
+          <div class="diff-title">Built for India</div>
+          <div class="diff-desc">GSTR-1, GSTR-3B, GSTR-9, ITR, TDS, ROC, MCA21 — every Indian compliance workflow is baked in. Not a generic tool stretched to fit.</div>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">⚙️</div>
+          <div class="diff-title">Execution focused</div>
+          <div class="diff-desc">Most tools are built for storing data. Obliq.io is built for getting things done — tasks, reminders, filings, and billing all flow together.</div>
+        </div>
+        <div class="diff-card">
+          <div class="diff-icon">📱</div>
+          <div class="diff-title">Works how you work</div>
+          <div class="diff-desc">WhatsApp reminders, mobile uploads, simple portals. Designed for busy CAs and non-tech clients. No training courses needed.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-bar">
+    <span>Obliq.io — CA Practice Management</span>
+    <span>Page 5</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════ PAGE 6: CTA ══════════════════════════════════════ -->
+<div class="page">
+  <div class="inner">
+
+    <div class="cta-box">
+      <div class="cta-left">
+        <div class="cta-eyebrow">Ready to see it live?</div>
+        <h2 class="cta-title">Book a free 30-minute demo.<br>No pressure, no sales pitch.</h2>
+        <p class="cta-body">We'll show you exactly how Obliq.io would work for your firm — with your client count, your compliance types, your team size. You'll see the full workflow live, ask every question you have, and decide from there. No commitments, no confusing pricing, no follow-up spam.</p>
+      </div>
+      <div class="cta-right">
+        <a href="mailto:hello@obliq.io" class="cta-btn">Book a Free Demo →</a>
+        <div class="cta-note">hello@obliq.io · obliq.io</div>
+      </div>
+    </div>
+
+    <div class="ornament">· · ·</div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 8px;">
+      <div style="text-align: center;">
+        <div style="font-size: 28px; font-weight: 600; color: var(--ink); font-family: 'DM Serif Display', serif;">200+</div>
+        <div style="font-size: 12px; color: var(--ink3); margin-top: 4px;">Clients manageable<br>without extra staff</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 28px; font-weight: 600; color: var(--ink); font-family: 'DM Serif Display', serif;">14 hrs</div>
+        <div style="font-size: 12px; color: var(--ink3); margin-top: 4px;">Saved per month<br>on follow-ups alone</div>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 28px; font-weight: 600; color: var(--ink); font-family: 'DM Serif Display', serif;">₹6L+</div>
+        <div style="font-size: 12px; color: var(--ink3); margin-top: 4px;">In recovered revenue<br>from unbilled work</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="doc-footer">
+    <div class="doc-footer-logo">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAH0AfQDASIAAhEBAxEB/8QAGwABAAMBAQEBAAAAAAAAAAAAAAMEBQIGAQj/xABMEAEAAQMBAQYRCQcBCQEAAAAAAQIDBAUREhQ1c5PSExUhMTM0UVJUVXJ0lLGys9EGIkFEU3GRksIjMlZhYoHBZCRCQ2OCg6HD4Tb/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAXEQEBAQEAAAAAAAAAAAAAAAAAAREx/9oADAMBAAIRAxEAPwD8ZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALV" alt="Obliq logo" style="filter: none; opacity:0.6;">
+      <span>Obliq.io</span>
+    </div>
+    <span>© 2025 Obliq.io · All rights reserved · Built for Indian CA firms</span>
+    <span>hello@obliq.io · obliq.io</span>
+  </div>
+
+  <div class="page-bar">
+    <span>Obliq.io — CA Practice Management</span>
+    <span>Page 6</span>
+  </div>
+</div>
+
+</body>
+</html>
